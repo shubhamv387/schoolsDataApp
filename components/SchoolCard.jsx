@@ -2,7 +2,8 @@ const SchoolCard = ({ school }) => {
   return (
     <div className='bg-gray-800 w-full max-w-96 text-white rounded-lg overflow-hidden shadow-md flex flex-col'>
       <img
-        src={`/uploads/${school.image}`}
+        src={school.image}
+        // src={`/uploads/${school.image}`}
         alt={school.name}
         className='h-56 w-full object-cover'
       />
