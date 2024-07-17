@@ -52,7 +52,7 @@ const getSchools = async () => {
     return data;
   } catch (error) {
     console.log(error);
-    return { sampleSchoolData };
+    return { schools: sampleSchoolData };
   }
 };
 
