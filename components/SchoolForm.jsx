@@ -38,7 +38,7 @@ const SchoolForm = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/schools`,
+        'http://localhost:3000/api/schools',
         formData,
         {
           headers: {

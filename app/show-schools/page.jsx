@@ -4,9 +4,7 @@ import Link from 'next/link';
 
 const getSchools = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/schools`, {
-      cache: 'no-store',
-    });
+    const res = await fetch('http://localhost:3000/api/schools');
     if (!res.ok) throw new Error('Failed to fetch school data');
     const data = await res.json();
     return data;

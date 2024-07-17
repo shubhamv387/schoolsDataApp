@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server';
 import path from 'path';
 import { promises as fs } from 'fs';
-
-const { default: School } = require('@/model/School.model');
+import { query } from '@/lib/database';
 
 export async function GET(req) {
   try {
-    const schools = await School.findAll();
-
+    const schools = await query({
+      query: 'SELECT * FROM schools',
+      values: [],
+    });
     return NextResponse.json({ success: true, schools }, { status: 200 });
   } catch (error) {
     console.log(error.message);
@@ -25,11 +26,14 @@ export async function POST(req) {
 
     if (!file) return NextResponse.json({ success: 'false' }, { status: 400 });
 
-    const existingSchool = await School.findOne({
-      where: { email_id: data.get('email_id') },
+    const existingSchool = await query({
+      query: `SELECT * FROM schools WHERE email_id = ?`,
+      values: [data.get('email_id')],
     });
 
-    if (existingSchool)
+    // console.log(existingSchool);
+
+    if (existingSchool.length > 0)
       return NextResponse.json(
         { success: 'false', message: 'Email already exists' },
         { status: 400 }
@@ -51,17 +55,19 @@ export async function POST(req) {
       if (err) throw err;
     });
 
-    await School.create({
-      name: data.get('name'),
-      address: data.get('address'),
-      city: data.get('city'),
-      state: data.get('state'),
-      contact: +data.get('contact'),
-      image: imgUrl,
-      email_id: data.get('email_id'),
+    await query({
+      query:
+        'INSERT INTO schools (name, address, city, state, contact, image, email_id) VALUES (?,?,?,?,?,?,?)',
+      values: [
+        data.get('name'),
+        data.get('address'),
+        data.get('city'),
+        data.get('state'),
+        data.get('contact'),
+        imgUrl,
+        data.get('email_id'),
+      ],
     });
-
-    // console.log(school.dataValues);
 
     return NextResponse.json(
       { success: true, message: 'school data inserted successfully' },
