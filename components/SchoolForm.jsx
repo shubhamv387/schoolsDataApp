@@ -10,7 +10,6 @@ const SchoolForm = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const [formattedValue, setFormattedValue] = useState('')
-  const [rawValue, setRawValue] = useState('')
 
   const formatNumber = (value) => {
     // Remove all non-numeric characters
@@ -108,6 +107,7 @@ const SchoolForm = () => {
                 required: 'Name is required',
                 minLength: { value: 2, message: 'At least 2 character' },
               })}
+              autoComplete='off'
               onBlur={() => trigger('name')}
               onKeyUp={() => trigger('name')}
               className={`shadow appearance-none bg-transparent border ${
@@ -132,6 +132,7 @@ const SchoolForm = () => {
                   message: 'Invalid email address',
                 },
               })}
+              autoComplete='off'
               onBlur={() => trigger('email_id')}
               onKeyUp={() => trigger('email_id')}
               className={`shadow appearance-none bg-transparent border ${
@@ -159,6 +160,7 @@ const SchoolForm = () => {
                   message: 'Address can only contain letters, numbers, spaces, commas, apostrophes, and hyphens',
                 },
               })}
+              autoComplete='off'
               onBlur={() => trigger('address')}
               onKeyUp={() => trigger('address')}
               className={`shadow appearance-none bg-transparent border ${
@@ -182,6 +184,7 @@ const SchoolForm = () => {
                   message: 'At least 2 character',
                 },
               })}
+              autoComplete='off'
               onBlur={() => trigger('city')}
               onKeyUp={() => trigger('city')}
               className={`shadow appearance-none bg-transparent border ${
@@ -205,6 +208,7 @@ const SchoolForm = () => {
                   message: 'At least 2 character',
                 },
               })}
+              autoComplete='off'
               onBlur={() => trigger('state')}
               onKeyUp={() => trigger('state')}
               className={`shadow appearance-none bg-transparent border ${
@@ -213,7 +217,6 @@ const SchoolForm = () => {
               name='state'
               type='text'
               placeholder='State'
-              autoComplete='off'
             />
             {errors.state && <p className='text-red-400 text-sm mt-1'>{errors.state.message}</p>}
           </div>
