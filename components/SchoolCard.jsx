@@ -15,7 +15,7 @@ const SchoolCard = ({ school }) => {
         <p className='text-zinc-300'>{school.address}</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SchoolCard;
+export default SchoolCard

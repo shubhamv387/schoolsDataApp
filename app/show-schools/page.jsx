@@ -9,24 +9,21 @@ const getSchools = async () => {
       name: 'RLB',
       city: 'Lucknow',
       address: 'Puraniya',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT00Pu2xDYhG7EiZYPTz-YOcj10R4qI6Z_GYw&s',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT00Pu2xDYhG7EiZYPTz-YOcj10R4qI6Z_GYw&s',
     },
     {
       id: 2,
       name: 'RLB 2',
       city: 'Lucknow',
       address: 'Munshi Puliya',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBvaFVo1ZclKd_28hE7_VYsXJazFTPDToHg&s',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJBvaFVo1ZclKd_28hE7_VYsXJazFTPDToHg&s',
     },
     {
       id: 3,
       name: 'RLB 3',
       city: 'Lucknow',
       address: 'Vikas Nager',
-      image:
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5xrCJ_hoTAZ0speseZT_mslgtGuR5OXwfrQ&s',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5xrCJ_hoTAZ0speseZT_mslgtGuR5OXwfrQ&s',
     },
     {
       id: 4,
@@ -69,9 +66,7 @@ const ShowSchools = async () => {
       </Link>
       <div className='container px-2.5 md:px-3 mx-auto mt-8 grid place-content-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8'>
         {schools.length > 0 ? (
-          schools.map((school) => (
-            <SchoolCard key={school.id} school={school} />
-          ))
+          schools.map((school) => <SchoolCard key={school.id} school={school} />)
         ) : (
           <p className='text-center col-span-4 mt-5 text-3xl'>No data found!</p>
         )}

@@ -1,6 +1,6 @@
-'use client';
-import Link from 'next/link';
-import SchoolForm from '@/components/SchoolForm';
+'use client'
+import Link from 'next/link'
+import SchoolForm from '@/components/SchoolForm'
 
 const AddSchool = () => {
   return (
@@ -14,7 +14,7 @@ const AddSchool = () => {
 
       <SchoolForm />
     </div>
-  );
-};
+  )
+}
 
-export default AddSchool;
+export default AddSchool
